@@ -24,12 +24,16 @@ export const Contacts = () => {
 						{store.contacts.map((contact, index) => {
 							return (
 								<ContactCard
-									onDelete={() => setState({ showModal: true })}
-									name={contact.name}
+									onDelete={() => {
+										setState({ showModal: true });
+										actions.addContactID(contact.id);
+									}}
+									name={contact.full_name}
 									address={contact.address}
 									phone={contact.phone}
 									email={contact.email}
 									key={index}
+									id={contact.id}
 								/>
 							);
 						})}

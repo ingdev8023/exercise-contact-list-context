@@ -1,7 +1,8 @@
 const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
-			contacts: []
+			contacts: [],
+			id: []
 			//Your data structures, A.K.A Entities
 		},
 		actions: {
@@ -60,10 +61,9 @@ const getState = ({ getStore, setStore }) => {
 					console.error(error);
 				}
 			},
-			deleteContact: async () => {
-				//OBTENER ID
+			deleteContact: async id => {
 				try {
-					const openConection = await fetch("https://playground.4geeks.com/apis/fake/contact/", {
+					const openConection = await fetch("https://playground.4geeks.com/apis/fake/contact/" + id, {
 						method: "DELETE",
 						headers: {
 							"Content-Type": "application/json"
@@ -74,6 +74,9 @@ const getState = ({ getStore, setStore }) => {
 				} catch (error) {
 					console.error(error);
 				}
+			},
+			addContactID: id => {
+				setStore({ id: id });
 			}
 		}
 	};

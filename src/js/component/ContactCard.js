@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import MikePhoto from "../../img/m101.jpg";
-import { Context } from "../store/appContext";
 export const ContactCard = props => {
 	const [state, setState] = useState({
 		//initialize state here
@@ -59,7 +58,8 @@ ContactCard.propTypes = {
 	name: PropTypes.string,
 	address: PropTypes.string,
 	email: PropTypes.string,
-	phone: PropTypes.string
+	phone: PropTypes.string,
+	id: Number
 };
 
 /**

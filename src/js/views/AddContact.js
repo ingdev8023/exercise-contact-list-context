@@ -20,7 +20,6 @@ export const AddContact = () => {
 	};
 
 	const handleSubmit = e => {
-		e.preventDefault();
 		actions.crearContact(contact);
 	};
 
